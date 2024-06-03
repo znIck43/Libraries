@@ -9,8 +9,9 @@ local library = {
     Flags = {},
     Signals = {},
     SectionsOpened = false,
-    Theme = "Dark"
+    Theme = "Dark" -- Dark, Tokyo Night
 }
+
 library.flags = library.Flags
 library.theme = library.Theme
 library.signals = library.Signals
@@ -91,22 +92,22 @@ local function Disconnect()
     end
 end
 
-local request = syn and syn.request or http and http.request or http_request or request or httprequest
-local getcustomasset = getcustomasset or getsynasset
-local isfolder = isfolder or syn_isfolder or is_folder
+local request = http and http.request or http_request or request or httprequest
+local getcustomasset = getcustomasset
+local isfolder = isfolder or is_folder
 local makefolder = makefolder or make_folder or createfolder or create_folder
 
 if not isfolder("Unnamed") then
-makefolder("Unnamed")
+    makefolder("Unnamed")
+        
+    local Shadow = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/UnnamedShadow.png", Method = "GET"})
+    writefile("Unnamed/Shadow.png", Shadow.Body)
     
-local Shadow = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/UnnamedShadow.png", Method = "GET"})
-writefile("Unnamed/Shadow.png", Shadow.Body)
-
-local Chevron = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/Chevron.png", Method = "GET"})
-writefile("Unnamed/Chevron.png", Chevron.Body)
-
-local Circle = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/Circle.png", Method = "GET"})
-writefile("Unnamed/Circle.png", Circle.Body)
+    local Chevron = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/Chevron.png", Method = "GET"})
+    writefile("Unnamed/Chevron.png", Chevron.Body)
+    
+    local Circle = request({Url = "https://raw.githubusercontent.com/Rain-Design/Unnamed/main/Icons/Circle.png", Method = "GET"})
+    writefile("Unnamed/Circle.png", Circle.Body)
 end
 
 local SelectedTab = nil
