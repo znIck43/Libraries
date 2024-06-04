@@ -1,8 +1,3 @@
-if getgenv().Unnamed then
-    unnamed:Destroy()
-    shadow:Destroy()
-end
-
 getgenv().Unnamed = true
 
 local library = {
