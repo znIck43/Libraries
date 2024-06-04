@@ -86,9 +86,9 @@ local function Disconnect()
     end
 end
 
-local request = syn and syn.request or http and http.request or http_request or request or httprequest
-local getcustomasset = getcustomasset or getsynasset
-local isfolder = isfolder or syn_isfolder or is_folder
+local request = http and http.request or http_request or request or httprequest
+local getcustomasset = getcustomasset
+local isfolder = isfolder or is_folder
 local makefolder = makefolder or make_folder or createfolder or create_folder
 
 if not isfolder("Unnamed") then
