@@ -403,7 +403,7 @@ end
             if Opened then wait(0.15) end
 
             for _,v in pairs(main:GetChildren()) do
-                if v.Name == "TabContainer" then
+                if v.Name == "Tlibraryontainer" then
                     v.Visible = Opened
                 end
             end
@@ -495,17 +495,17 @@ end
         end
     end)
 
-    local tabContainer = Instance.new("Frame")
-    tabContainer.Name = "TabContainer"
-    tabContainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    tabContainer.Position = UDim2.new(0, 0, 0.0935, 0)
-    tabContainer.Size = UDim2.new(0, 114, 0, 291)
-    tabContainer.Parent = main
+    local tlibraryontainer = Instance.new("Frame")
+    tlibraryontainer.Name = "Tlibraryontainer"
+    tlibraryontainer.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    tlibraryontainer.Position = UDim2.new(0, 0, 0.0935, 0)
+    tlibraryontainer.Size = UDim2.new(0, 114, 0, 291)
+    tlibraryontainer.Parent = main
 
     local uICorner2 = Instance.new("UICorner")
     uICorner2.Name = "UICorner"
     uICorner2.CornerRadius = UDim.new(0, 5)
-    uICorner2.Parent = tabContainer
+    uICorner2.Parent = tlibraryontainer
 
     local fix = Instance.new("Frame")
     fix.Name = "Fix"
@@ -513,7 +513,7 @@ end
     fix.BorderSizePixel = 0
     fix.Position = UDim2.new(0.895, 0, 0, 0)
     fix.Size = UDim2.new(0, 11, 0, 285)
-    fix.Parent = tabContainer
+    fix.Parent = tlibraryontainer
 
     local fix1 = Instance.new("Frame")
     fix1.Name = "Fix"
@@ -521,7 +521,7 @@ end
     fix1.BorderSizePixel = 0
     fix1.Position = UDim2.new(0, 0, -0.00351, 0)
     fix1.Size = UDim2.new(0, 11, 0, 79)
-    fix1.Parent = tabContainer
+    fix1.Parent = tlibraryontainer
 
     local scrollingContainer = Instance.new("ScrollingFrame")
     scrollingContainer.Name = "ScrollingContainer"
@@ -535,7 +535,7 @@ end
     scrollingContainer.BorderSizePixel = 0
     scrollingContainer.Size = UDim2.new(0, 114, 0, 285)
     scrollingContainer.ZIndex = 2
-    scrollingContainer.Parent = tabContainer
+    scrollingContainer.Parent = tlibraryontainer
 
 function window:Tab(Info)
         Info.Text = Info.Text or "Tab"
@@ -1839,7 +1839,7 @@ end
     frame2.BorderSizePixel = 0
     frame2.Position = UDim2.new(1, 0, 0.501, 0)
     frame2.Size = UDim2.new(0, 1, 0, 284)
-    frame2.Parent = tabContainer
+    frame2.Parent = tlibraryontainer
 
     local uIStroke2 = Instance.new("UIStroke")
     uIStroke2.Name = "UIStroke"
@@ -1849,11 +1849,9 @@ end
     return window
 end
 
-local abc = {}
 -- functions
-
 --has :Set()
-function abc:CreateToggle(section, text, default, tooltip, callback)
+function library:CreateToggle(section, text, default, tooltip, callback)
     section:Toggle({
         Text = text,
         Default = default,
@@ -1862,7 +1860,7 @@ function abc:CreateToggle(section, text, default, tooltip, callback)
     })
 end
 
-function abc:CreateButton(section, text, tooltip, callback)
+function library:CreateButton(section, text, tooltip, callback)
     section:Button({
         Text = text,
         Tooltip = tooltip,
@@ -1871,7 +1869,7 @@ function abc:CreateButton(section, text, tooltip, callback)
 end
 
 --has :Set()
-function abc:CreateLabel(section, text, color, tooltip, callback)
+function library:CreateLabel(section, text, color, tooltip, callback)
     section:Label({
         Text = text,
         Color = color,
@@ -1882,7 +1880,7 @@ end
 
 --has flag
 --has :Refresh()
-function abc:CreateDropdown(section, text, list, flag, callback)
+function library:CreateDropdown(section, text, list, flag, callback)
     section:Dropdown({
         Text = text,
         List = list,
@@ -1891,7 +1889,7 @@ function abc:CreateDropdown(section, text, list, flag, callback)
     })
 end
 
-function abc:CreateRadioButton(section, text, options, callback)
+function library:CreateRadioButton(section, text, options, callback)
     section:RadioButton({
         Text = text,
         Options = options,
@@ -1900,7 +1898,7 @@ function abc:CreateRadioButton(section, text, options, callback)
 end
 
 --has flag
-function abc:CreateInput(section, placeholder, flag, tooltip, callback)
+function library:CreateInput(section, placeholder, flag, tooltip, callback)
     section:Input({
         Placeholder = placeholder,
         Flag = flag,
@@ -1909,7 +1907,7 @@ function abc:CreateInput(section, placeholder, flag, tooltip, callback)
     })
 end
 
-function abc:CreateKeybind(section, text, keybind, callback)
+function library:CreateKeybind(section, text, keybind, callback)
     section:Keybind({
         Text = text,
         Default = keybind,
@@ -1918,7 +1916,7 @@ function abc:CreateKeybind(section, text, keybind, callback)
 end
 
 --has flag
-function abc:CreateSlider(section, text, default, min, max, flag, callback)
+function library:CreateSlider(section, text, default, min, max, flag, callback)
     section:Slider({
         Text = text,
         Default = default,
@@ -1929,4 +1927,4 @@ function abc:CreateSlider(section, text, default, min, max, flag, callback)
     })
 end
 
-return abc, library
+return library
