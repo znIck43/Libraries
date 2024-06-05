@@ -1929,4 +1929,4 @@ function abc:CreateSlider(section, text, default, min, max, flag, callback)
     })
 end
 
-return library
+return abc, library
