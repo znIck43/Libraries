@@ -1847,4 +1847,84 @@ end
     return window
 end
 
+local abc = {}
+-- functions
+
+--has :Set()
+function abc:CreateToggle(section, text, default, tooltip, callback)
+    section:Toggle({
+        Text = text,
+        Default = default,
+        Tooltip = tooltip,
+        Callback = callback
+    })
+end
+
+function abc:CreateButton(section, text, tooltip, callback)
+    section:Button({
+        Text = text,
+        Tooltip = tooltip,
+        Callback = callback
+    })
+end
+
+--has :Set()
+function abc:CreateLabel(section, text, color, tooltip, callback)
+    section:Label({
+        Text = text,
+        Color = color,
+        Tooltip = tooltip,
+        Callback = callback
+    })
+end
+
+--has flag
+--has :Refresh()
+function abc:CreateDropdown(section, text, list, flag, callback)
+    section:Dropdown({
+        Text = text,
+        List = list,
+        Flag = flag,
+        Callback = callback
+    })
+end
+
+function abc:CreateRadioButton(section, text, options, callback)
+    section:RadioButton({
+        Text = text,
+        Options = options,
+        Callback = callback
+    })
+end
+
+--has flag
+function abc:CreateInput(section, placeholder, flag, tooltip, callback)
+    section:Input({
+        Placeholder = placeholder,
+        Flag = flag,
+        Tooltip = tooltip,
+        Callback = callback
+    })
+end
+
+function abc:CreateKeybind(section, text, keybind, callback)
+    section:Keybind({
+        Text = text,
+        Default = keybind,
+        Callback = callback
+    })
+end
+
+--has flag
+function abc:CreateSlider(section, text, default, min, max, flag, callback)
+    section:Slider({
+        Text = text,
+        Default = default,
+        Minimum = min,
+        Maximum = max,
+        Flag = flag,
+        Callback = callback
+    })
+end
+
 return library
